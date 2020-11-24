@@ -1,0 +1,18 @@
+.title-bar {
+    grid-area: nav;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:#EDEDED;
+    padding: 0 20px;
+    border-radius: 10px 0 0 0;
+    box-shadow: 0 1px 3px -1px rgba(0,0,0,0.75);
+}
+  
+.title-bar h3 {
+    color:#000000;
+    font-weight: bold;
+    font-size: 2em;
+    padding-right: 10px;
+    padding-left: 10px;
+}

@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, 
+body {
+  height: 100vh;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:   #DADBD3;
+  font-size: 10px;
+}
+div{
+  display: block;
+
+}
+.app{
+  padding-top: 15px;
+}
+.appHead{
+  width: 100%;
+  height: 127px;
+  background-color: #009588;
+  position: fixed;
+  z-index: -1;
+
+}

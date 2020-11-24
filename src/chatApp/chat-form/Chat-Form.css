@@ -1,0 +1,28 @@
+.chat-form {
+  grid-area: chat-form;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  border-radius: 0 0 10px 0;
+  border-top: 1px solid rgba(0,0,0,0.25);
+  padding: 5px 20px 5px 20px;
+}
+  
+.chat-form input {
+  width:95%;
+  outline: none;
+  padding: 10px;
+  border: 2px solid #ddd;
+  color: #330;
+  border-radius: 10px;
+  font-size: 1.4rem;
+}
+
+.fontawesome-icon {
+  cursor: pointer;
+  color: #009588;
+  font-size: 1.5em;
+}
+  

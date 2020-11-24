@@ -1,0 +1,22 @@
+.chat-container {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 70px 1fr 1fr 1fr 1fr 60px;
+    grid-template-areas:
+        'nav nav title title title title'
+        'conv-list conv-list mes-list mes-list mes-list mes-list'
+        'conv-list conv-list mes-list mes-list mes-list mes-list'
+        'conv-list conv-list mes-list mes-list mes-list mes-list'
+        'conv-list conv-list mes-list mes-list mes-list mes-list'
+        'conv-list conv-list chat-form chat-form chat-form chat-form';
+
+    min-width: 800px;
+    max-width: 1000px;
+    max-height: 800px;
+    width: 100%;
+    height: 95vh;
+    background-color: #FFF;
+    background: url('../../images/background/background.png') no-repeat center bottom/cover;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
