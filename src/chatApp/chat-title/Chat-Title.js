@@ -2,10 +2,10 @@ import React from 'react';
 
 import './Chat-Title.css';
 
-function ChatTitle() {
+function ChatTitle({ title }) {
     return (
         <div className="chat-title">
-            <span>Morteza</span>
+            <span>{title}</span>
         </div>
     );
 }

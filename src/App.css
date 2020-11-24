@@ -16,10 +16,11 @@ html {
 }
 div{
   display: block;
-
 }
+
 .app{
   padding-top: 15px;
+  width: 100%;
 }
 .appHead{
   width: 100%;

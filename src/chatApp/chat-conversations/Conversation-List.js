@@ -1,58 +1,30 @@
 import React from 'react'
-import avatar from "../../images/profiles/avatar.png";
 import './Conversation-List.css'
+import ConversationItem from './Coversation-Item'
 
-export default function ConversationList(props) {
+function ConversationList(
+    {
+        convs,
+        onConversationItemSelected,
+        selectedConversationId
+    }
+) {
     return (
         <div className='conversation-list' >
-            <div className='conversation'>
-                <div className='conversation-avatar'>
-                    <img src={avatar} alt='profile' />
-                </div>
-                <div className='title-text'>Morteza</div>
-                <div className='conversation-message'>Hello</div>
-                <div className='conversation-time'>Thursday</div>
-                <div className='conversation-info'><div>10</div></div>
-            </div>
-            <div className='conversation'>
-                <div className='conversation-avatar'>
-                    <img src={avatar} alt='profile' />
-                </div>
-                <div className='title-text'>Ghazaleh</div>
-                <div className='conversation-message'>Hello</div>
-                <div className='conversation-time'>Thursday</div>
-                <div className='conversation-info'><div>10</div></div>
-            </div>
-            <div className='conversation'>
-                <div className='conversation-avatar'>
-                    <img src={avatar} alt='profile' />
-                </div>
-                <div className='title-text'>Mom</div>
-                <div className='conversation-message'>Hello</div>
-                <div className='conversation-time'>Thursday</div>
-                <div className='conversation-info'><div>10</div></div>
-            </div>
-            <div className='conversation'>
-                <div className='conversation-avatar'>
-                    <img src={avatar} alt='profile' />
-                </div>
-                <div className='title-text'>Dad</div>
-                <div className='conversation-message'>Hello</div>
-                <div className='conversation-time'>Thursday</div>
-                <div className='conversation-info'><div>10</div></div>
-            </div>
-            <div className='conversation'>
-                <div className='conversation-avatar'>
-                    <img src={avatar} alt='profile' />
-                </div>
-                <div className='title-text'>Mohammad Mahdi</div>
-                <div className='conversation-message'>Hello</div>
-                <div className='conversation-time'>Thursday</div>
-                <div className='conversation-info'><div>10</div></div>
-            </div>
-
-
-
+            {
+                convs.map((conversation, index) => {
+                    return (
+                        <ConversationItem
+                            key={conversation.id}
+                            conversation={conversation}
+                            isActive={index === +selectedConversationId - 1}
+                            conversationItemSelected={onConversationItemSelected}
+                        />
+                    )
+                })
+            }
         </div>
     )
 }
+
+export default ConversationList;
