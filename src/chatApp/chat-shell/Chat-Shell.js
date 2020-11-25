@@ -22,7 +22,6 @@ function ChatShell(
 
     useEffect(() => {
         if (conversations.length === 0) {
-            console.log('inidse');
             loadConversations();
         }
     }, [conversations.length, loadConversations]);
