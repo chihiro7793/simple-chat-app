@@ -1,5 +1,5 @@
+import { conversationChanged, messageSubmitted } from '../../actions/index';
 import ConversationList from '../chat-conversations/Conversation-List';
-import { conversationChanged } from '../../actions/index'
 import MessageList from '../chat-message/Message-List';
 import ChatTitle from '../chat-title/Chat-Title';
 import ChatForm from '../chat-form/Chat-Form';
@@ -9,10 +9,13 @@ import React from 'react';
 import './Chat-Shell.css';
 
 function ChatShell(
-    { conversations,
+    {
         selectedConversation,
-        conversationChanged }) {
-
+        conversationChanged,
+        messageSubmitted,
+        conversations
+    }
+) {
     return (
         <div className="chat-container">
             <ChatNav />
@@ -27,7 +30,7 @@ function ChatShell(
             <MessageList
                 messages={selectedConversation.messages}
             />
-            <ChatForm />
+            <ChatForm onMessageSubmit={messageSubmitted} />
         </div>
     );
 }
@@ -40,7 +43,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        conversationChanged: conversationId => dispatch(conversationChanged(conversationId))
+        conversationChanged: conversationId => dispatch(conversationChanged(conversationId)),
+        messageSubmitted: textMessage => dispatch(messageSubmitted(textMessage))
     };
 };
 
