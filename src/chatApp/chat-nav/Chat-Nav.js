@@ -1,6 +1,7 @@
 import { faBars, faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
+import { searchKeyword } from '../../actions/actions';
 import { connect } from 'react-redux';
 import './Chat-Nav.css';
 
@@ -60,13 +61,13 @@ function ChatNav({ keyword, searchKeyword }) {
 
 const mapStateToProps = (state) => {
     return {
-        keyword: state.searchReducer.keyword
+        keyword: state.applicationReducer.keyword
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        searchKeyword: (keyword) => dispatch({ type: 'SEARCH_KEYWORD', payload: keyword })
+        searchKeyword: (keyword) => dispatch(searchKeyword(keyword))
     }
 }
 export default connect(

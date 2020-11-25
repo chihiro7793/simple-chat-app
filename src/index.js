@@ -4,9 +4,9 @@ import App from "./App";
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from "redux";
 import conversationReducer from './reducers/conversationReducer'
-import searchReducer from './reducers/searchReducer'
+import applicationReducer from './reducers/applicationReducer'
 
-const rootReducer = combineReducers({ conversationReducer, searchReducer })
+const rootReducer = combineReducers({ conversationReducer, applicationReducer })
 const store = createStore(rootReducer);
 ReactDOM.render(
   <Provider store={store}>

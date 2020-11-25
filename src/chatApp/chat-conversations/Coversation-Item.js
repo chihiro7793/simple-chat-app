@@ -1,19 +1,22 @@
 import React from 'react';
-import './Conversation-Item.css'
+import './Conversation-Item.css';
 
 function CoversationItem(
     {
+        conversationItemSelected,
         conversation,
         isActive,
-        conversationItemSelected
     }
 ) {
+
+    function handleClick() {
+        conversationItemSelected(conversation.id);
+        // caughtAllMessages(conversation.id)
+    }
     return (
         <div
             className={isActive ? 'conversation active' : 'conversation'}
-            onClick={() => {
-                return conversationItemSelected(conversation.id);
-            }}
+            onClick={handleClick}
         >
             <div className='conversation-avatar'>
                 <img src={conversation.imageUrl.default} alt={conversation.imageAlt} />
@@ -28,4 +31,13 @@ function CoversationItem(
         </div>
     )
 }
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         caughtAllMessages: id => dispatch(caughtAllMessages(id))
+
+//     }
+// }
+// export default connect(mapDispatchToProps)(CoversationItem);
+
 export default CoversationItem;

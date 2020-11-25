@@ -1,4 +1,4 @@
-import { conversationChanged, messageSubmitted } from '../../actions/index';
+import { conversationChanged, messageSubmitted } from '../../actions/actions';
 import ConversationList from '../chat-conversations/Conversation-List';
 import MessageList from '../chat-message/Message-List';
 import ChatTitle from '../chat-title/Chat-Title';
@@ -17,6 +17,7 @@ function ChatShell(
         searchKey
     }
 ) {
+
     return (
         <div className="chat-container">
             <ChatNav />
@@ -40,7 +41,7 @@ const mapStateToProps = state => {
     return {
         conversations: state.conversationReducer.conversations,
         selectedConversation: state.conversationReducer.selectedConversation,
-        searchKey: state.searchReducer
+        searchKey: state.applicationReducer
     };
 };
 

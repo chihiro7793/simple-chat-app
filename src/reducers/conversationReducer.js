@@ -209,12 +209,15 @@ initialState.selectedConversation = initialState.conversations[0];
 
 export default function reducer(state = initialState, { type, payload }) {
     if (type === 'SELECTED_CONVERSATION_CHANGED') {
+        const copyConversations = [...state.conversations];
+        const selectedItem = copyConversations.find(c => c.id === payload);
+        selectedItem.unread = 0;
         return ({
             ...state,
-            selectedConversation: state.conversations.find(
-                c => c.id === payload
-            )
+            conversations: copyConversations,
+            selectedConversation: selectedItem
         })
+
     } else if (type === 'MESSAGE_SUBMITTED') {
         const newSelectedConversation = { ...state.selectedConversation }
         newSelectedConversation.messages.push({
