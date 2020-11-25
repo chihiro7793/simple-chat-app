@@ -22,6 +22,7 @@ export default function reducer(state = initialState, { type, payload }) {
         })
 
     } else if (type === 'MESSAGE_SUBMITTED') {
+        console.log(payload);
         const newSelectedConversation = { ...state.selectedConversation }
         newSelectedConversation.messages.push({
             messageText: payload,

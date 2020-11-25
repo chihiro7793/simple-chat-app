@@ -22,8 +22,8 @@ export const caughtAllMessages = id => ({
     payload: id
 })
 
-export const fetchInitialdata = (dispatch) => {
-    return dispatch => {
+export const fetchInitialdata = () => {
+    return (dispatch) => {
         getInitData().then(response =>
             dispatch({ type: 'CONVERSATIONS_REQUESTED', payload: response })
         )

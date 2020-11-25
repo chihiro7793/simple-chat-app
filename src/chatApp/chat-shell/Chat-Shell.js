@@ -21,16 +21,20 @@ function ChatShell(
 ) {
 
     useEffect(() => {
-        loadConversations();
-    }, [loadConversations]);
+        if (conversations.length === 0) {
+            console.log('inidse');
+            loadConversations();
+        }
+    }, [conversations.length, loadConversations]);
 
-    let conversationContent = (
-        <>
-            <InitWindow></InitWindow>
-        </>
-    );
-
-    if (conversations.length > 0) {
+    let conversationContent;
+    if (conversations.length === 0) {
+        conversationContent = (
+            <>
+                <InitWindow></InitWindow>
+            </>
+        );
+    } else if (conversations.length > 0) {
         conversationContent = (
             <>
                 <MessageList messages={selectedConversation.messages} />
@@ -56,7 +60,6 @@ function ChatShell(
     );
 }
 const mapStateToProps = state => {
-    console.log(state.applicationReducer);
     return {
         conversations: state.conversationReducer.conversations,
         selectedConversation: state.conversationReducer.selectedConversation,
@@ -68,7 +71,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         conversationChanged: conversationId => dispatch(conversationChanged(conversationId)),
         messageSubmitted: textMessage => dispatch(messageSubmitted(textMessage)),
-        loadConversations: () => dispatch(fetchInitialdata(dispatch))
+        loadConversations: () => dispatch(fetchInitialdata())
     };
 };
 

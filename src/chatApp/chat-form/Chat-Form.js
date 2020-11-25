@@ -8,11 +8,19 @@ function ChatForm({ onMessageSubmit }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        onMessageSubmit(text)
+        onMessageSubmit(text);
         setText('');
     }
+    function handleKeyDown(e) {
+        console.log(e.key);
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            onMessageSubmit(text);
+            setText('');
+        }
+    }
     return (
-        <form className="chat-form">
+        <form className="chat-form" onKeyDown={handleKeyDown}>
             <input
                 type="text"
                 value={text}
