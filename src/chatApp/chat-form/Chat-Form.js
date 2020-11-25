@@ -12,7 +12,6 @@ function ChatForm({ onMessageSubmit }) {
         setText('');
     }
     function handleKeyDown(e) {
-        console.log(e.key);
         if (e.key === 'Enter') {
             e.preventDefault();
             onMessageSubmit(text);
