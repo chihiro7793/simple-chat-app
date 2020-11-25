@@ -1,10 +1,15 @@
-import React from 'react';
+import Message from './Message';
 import './Message-List.css';
-import Message from './Message'
+import React, { useEffect, useRef } from 'react';
+
 
 function MessageList({ messages }) {
+    const messageListElement = useRef(null);
+    useEffect(() => {
+        messageListElement.current.scrollTop = messageListElement.current.scrollHeight;
+    })
     return (
-        <div className="chat-message-list">
+        <div ref={messageListElement} className="chat-message-list">
             {
                 messages.map((message, index) => {
                     return (

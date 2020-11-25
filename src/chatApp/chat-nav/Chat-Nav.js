@@ -1,23 +1,74 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useRef, useState } from 'react';
+import { connect } from 'react-redux';
 import './Chat-Nav.css';
 
-function ChatNav() {
+function ChatNav({ keyword, searchKeyword }) {
+    const [mode, setMode] = useState('nav');
+    const searchAutoFocus = useRef(null);
+
+    const isSearchMode = (mode === 'search');
+    useEffect(() => {
+        if (isSearchMode) {
+            searchAutoFocus.current.focus();
+        }
+    }, [isSearchMode])
+
+    function handleInputChange(e) {
+        keyword = e.target.value;
+        searchKeyword(keyword);
+    }
     return (
-        <div className="title-bar">
-            <div>
-                <FontAwesomeIcon className='fontawesome-icon' icon={faBars} />
-            </div>
-            <div>
-                <h3>Fancy Messenger</h3>
-            </div>
-            <div>
-                <FontAwesomeIcon className='fontawesome-icon' icon={faSearch} />
-            </div>
+        <div className='nav'>
+            { mode === 'nav' &&
+                <div className='title-bar'>
+                    <FontAwesomeIcon
+                        icon={faBars}
+                        className='fontawesome-icon'
+                    />
+                    <h3>Fancy Messenger</h3>
+                    <FontAwesomeIcon
+                        icon={faSearch}
+                        className='fontawesome-icon'
+                        onClick={() => setMode('search')}
+                    />
+                </div>
+            }
+
+            {
+                mode === 'search' &&
+                <div className='search-bar'>
+                    <FontAwesomeIcon
+                        icon={faArrowLeft}
+                        className='fontawesome-icon'
+                        onClick={() => setMode('nav')}
+                    />
+                    <input
+                        placeholder='Search...'
+                        ref={searchAutoFocus}
+                        value={keyword}
+                        onChange={handleInputChange}
+                    />
+                </div>
+            }
+
 
         </div>
     );
 }
 
-export default ChatNav;
+const mapStateToProps = (state) => {
+    return {
+        keyword: state.searchReducer.keyword
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        searchKeyword: (keyword) => dispatch({ type: 'SEARCH_KEYWORD', payload: keyword })
+    }
+}
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps)(ChatNav);

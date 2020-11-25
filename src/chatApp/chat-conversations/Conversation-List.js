@@ -6,13 +6,20 @@ function ConversationList(
     {
         convs,
         onConversationItemSelected,
-        selectedConversationId
+        selectedConversationId,
+        searchKey
     }
 ) {
+    const filteredConversationItems =
+        convs.filter(c =>
+            c.username
+                .toLowerCase()
+                .includes(searchKey.toLowerCase())
+        );
     return (
         <div className='conversation-list' >
             {
-                convs.map((conversation, index) => {
+                filteredConversationItems.map((conversation, index) => {
                     return (
                         <ConversationItem
                             key={conversation.id}

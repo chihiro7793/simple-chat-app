@@ -13,7 +13,8 @@ function ChatShell(
         selectedConversation,
         conversationChanged,
         messageSubmitted,
-        conversations
+        conversations,
+        searchKey
     }
 ) {
     return (
@@ -24,8 +25,9 @@ function ChatShell(
             />
             <ConversationList
                 convs={conversations}
-                onConversationItemSelected={conversationChanged}
+                searchKey={searchKey}
                 selectedConversationId={selectedConversation.id}
+                onConversationItemSelected={conversationChanged}
             />
             <MessageList
                 messages={selectedConversation.messages}
@@ -36,8 +38,9 @@ function ChatShell(
 }
 const mapStateToProps = state => {
     return {
-        conversations: state.conversations,
-        selectedConversation: state.selectedConversation
+        conversations: state.conversationReducer.conversations,
+        selectedConversation: state.conversationReducer.selectedConversation,
+        searchKey: state.searchReducer
     };
 };
 
