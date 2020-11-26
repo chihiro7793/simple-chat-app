@@ -43,11 +43,13 @@ export default function reducer(state = initialState, { type, payload }) {
 
         if (latestMessageTime < newMessage.createdAt ||
             latestMessageTime === newMessage.createdAt) {
-            let tempConv1 = { ...newStateConversations[0] };
-            let tempConv2 = { ...newStateConversations[index] };
-            multisplice(newStateConversations, 0, index);
-            newStateConversations.unshift(tempConv1);
-            newStateConversations.unshift(tempConv2);
+            if (index !== 0) {
+                let tempConv1 = { ...newStateConversations[0] };
+                let tempConv2 = { ...newStateConversations[index] };
+                multisplice(newStateConversations, 0, index);
+                newStateConversations.unshift(tempConv1);
+                newStateConversations.unshift(tempConv2);
+            }
         }
         return ({
             ...state,
