@@ -68,15 +68,12 @@ export const initialState = {
                         self: true
                     },
                     {
-                        messageText: `Hey mate what's up?`,
+                        messageText: `mi odio condimentum augue, 
+                        id lacinia nisi orci in diam.`,
                         createdAt: createdTime(),
                         self: false
                     },
-                    {
-                        messageText: `Love you?`,
-                        createdAt: createdTime(),
-                        self: false
-                    }
+
                 ]
             },
             {
@@ -87,49 +84,49 @@ export const initialState = {
                 unread: 2,
                 messages: [
                     {
-                        messageText: 'Ok fair enough. Well good talking to you.',
+                        messageText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                         createdAt: createdTime(),
                         self: true
                     },
                     {
                         messageText: `
-                        Not sure exactly yet. It will be next year sometime. Probably late.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras tincidunt ut ipsum semper porta.
                     `,
                         createdAt: createdTime(),
                         self: false
                     },
                     {
-                        messageText: 'Yeah I know. But oh well. So when is the big date?',
+                        messageText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cras tincidunt ut ipsum semper porta.`,
                         createdAt: createdTime(),
                         self: true
                     },
                     {
                         messageText: `
-                        Well I know you like doing that stuff. But honestly I think
-                        you are already really talented. It's a shame you haven't found
-                        what you are looking for yet.
-                    `,
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cras tincidunt ut ipsum semper porta.Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit.Cras tincidunt ut ipsum semper porta. `,
                         createdAt: createdTime(),
                         self: false
                     },
                     {
                         messageText: `
-                        I'm doing ok. Just working on building some applications to
-                        bulk up my resume, so I can get a better job.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cras tincidunt ut ipsum semper porta.
                     `,
                         createdAt: createdTime(),
                         self: true
                     },
                     {
                         messageText: `
-                        I've just been really busy at work myself, looking to get
-                        married sometime next year too. How are you going?
+                        Cras tincidunt ut ipsum semper porta.
                     `,
                         createdAt: createdTime(),
                         self: false
                     },
                     {
-                        messageText: 'Yes it has been a little while',
+                        messageText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
                         createdAt: createdTime(),
                         self: true
                     },

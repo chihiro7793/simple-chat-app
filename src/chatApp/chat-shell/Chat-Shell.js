@@ -1,12 +1,12 @@
 import { conversationChanged, messageSubmitted, fetchInitialdata } from '../../actions/actions';
 import ConversationList from '../chat-conversations/Conversation-List';
-import InitWindow from '../chat-message/Init-Window';
 import MessageList from '../chat-message/Message-List';
+import InitWindow from '../chat-message/Init-Window';
 import ChatTitle from '../chat-title/Chat-Title';
 import ChatForm from '../chat-form/Chat-Form';
 import ChatNav from '../chat-nav/Chat-Nav';
-import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import './Chat-Shell.css';
 
 function ChatShell(
