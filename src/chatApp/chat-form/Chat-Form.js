@@ -4,18 +4,33 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import './Chat-Form.css';
 
 function ChatForm({ onMessageSubmit }) {
+
+    const isMessageEmpty = (textMessage) => {
+        return adjustTextMessage(textMessage).length === 0;
+    }
+
+    const adjustTextMessage = (textMessage) => {
+        return textMessage.trim();
+    };
+
     const [text, setText] = useState('');
+    const disableButton = isMessageEmpty(text);
+    console.log(disableButton);
 
     function handleSubmit(e) {
         e.preventDefault();
-        onMessageSubmit(text);
-        setText('');
+        if (!isMessageEmpty(text)) {
+            onMessageSubmit(text);
+            setText('');
+        }
     }
     function handleKeyDown(e) {
         if (e.key === 'Enter') {
             e.preventDefault();
-            onMessageSubmit(text);
-            setText('');
+            if (!isMessageEmpty(text)) {
+                onMessageSubmit(text);
+                setText('');
+            }
         }
     }
     return (
@@ -27,7 +42,7 @@ function ChatForm({ onMessageSubmit }) {
                 onChange={(e) => setText(e.target.value)}
             />
             <FontAwesomeIcon
-                className='fontawesome-icon'
+                className={disableButton ? 'fontawesome-icon disabled' : 'fontawesome-icon'}
                 icon={faPaperPlane}
                 onClick={handleSubmit} />
         </form>
