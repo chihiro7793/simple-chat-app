@@ -15,7 +15,6 @@ function ChatForm({ onMessageSubmit }) {
 
     const [text, setText] = useState('');
     const disableButton = isMessageEmpty(text);
-    console.log(disableButton);
 
     function handleSubmit(e) {
         e.preventDefault();

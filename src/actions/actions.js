@@ -29,3 +29,7 @@ export const fetchInitialdata = () => {
         )
     }
 }
+
+export const changefirstRender = () => ({
+    type: 'UNDO_FIRST_RENDER'
+})
