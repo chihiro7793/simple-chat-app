@@ -1,4 +1,6 @@
-import { createdTime } from '../data/fetchData'
+import { createdTime } from '../functions/functions'
+import { multisplice } from '../functions/functions'
+
 const initialState = {
     conversations: [],
     selectedConversation: {}
@@ -22,17 +24,37 @@ export default function reducer(state = initialState, { type, payload }) {
         })
 
     } else if (type === 'MESSAGE_SUBMITTED') {
-        console.log(payload);
         const newSelectedConversation = { ...state.selectedConversation }
-        newSelectedConversation.messages.push({
+        const newMessage = {
             messageText: payload,
             createdAt: createdTime(),
             self: true
-        });
+        };
+        newSelectedConversation.messages.push(newMessage);
+        let newStateConversations = [...state.conversations];
+        const index =
+            newStateConversations
+                .findIndex(item =>
+                    item.id === newSelectedConversation.id);
+        let latestMessageTime =
+            newStateConversations[0]
+                .messages[state.conversations[0].messages.length - 1]
+                .createdAt;
+
+        if (latestMessageTime < newMessage.createdAt ||
+            latestMessageTime === newMessage.createdAt) {
+            let tempConv1 = { ...newStateConversations[0] };
+            let tempConv2 = { ...newStateConversations[index] };
+            multisplice(newStateConversations, 0, index);
+            newStateConversations.unshift(tempConv1);
+            newStateConversations.unshift(tempConv2);
+        }
         return ({
             ...state,
-            selectedConversation: newSelectedConversation
+            conversations: newStateConversations,
+            selectedConversation: newStateConversations[0]
         })
     }
     return state;
 }
+

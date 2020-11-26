@@ -6,7 +6,7 @@ function ConversationList(
     {
         convs,
         onConversationItemSelected,
-        selectedConversationId,
+        selectedConversation,
         searchKey
     }
 ) {
@@ -20,11 +20,13 @@ function ConversationList(
         <div className='conversation-list' >
             {
                 filteredConversationItems.map((conversation, index) => {
+                    const conversationIsActive = selectedConversation && conversation.id === selectedConversation.id;
+
                     return (
                         <ConversationItem
                             key={conversation.id}
                             conversation={conversation}
-                            isActive={index === +selectedConversationId - 1}
+                            isActive={conversationIsActive}
                             conversationItemSelected={onConversationItemSelected}
                         />
                     )

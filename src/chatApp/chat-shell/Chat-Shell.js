@@ -30,8 +30,8 @@ function ChatShell(
         }
     }, [conversations.length, loadConversations]);
 
-    let conversationContent;
 
+    let conversationContent;
     if (isFirstRender) {
         conversationContent = (
             <>
@@ -65,7 +65,7 @@ function ChatShell(
             <ConversationList
                 convs={conversations}
                 searchKey={searchKey}
-                selectedConversationId={selectedConversation.id}
+                selectedConversation={selectedConversation}
                 onConversationItemSelected={conversationChanged}
             />
             {conversationContent}

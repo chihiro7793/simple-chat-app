@@ -2,7 +2,7 @@ import { getInitData } from '../data/fetchData';
 export const conversationsRequested = () => ({
     type: 'CONVERSATIONS_REQUESTED'
 });
-export const conversationChanged = conversationId => ({
+export const conversationChanged = (conversationId = 0) => ({
     type: 'SELECTED_CONVERSATION_CHANGED',
     payload: conversationId
 });

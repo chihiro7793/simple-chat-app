@@ -1,9 +1,5 @@
-export const createdTime = () => {
-    var d = new Date();
-    return (d.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }))
-}
 
-
+import { createdTime } from '../functions/functions';
 export const initialState = {
     conversations:
         [
