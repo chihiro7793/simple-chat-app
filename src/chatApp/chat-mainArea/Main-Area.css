@@ -1,0 +1,12 @@
+
+.main-area{
+    grid-area: main-area;
+    display: grid;
+    height: 95vh;
+    border-radius: 0 0 10px 0;
+    grid-template-rows:70px 1fr 60px;
+    grid-template-areas: 'title'
+                        'mes-list'
+                        'chat-form';
+}
+

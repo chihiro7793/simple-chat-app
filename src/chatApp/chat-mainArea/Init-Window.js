@@ -1,12 +1,12 @@
 import React from 'react'
-import './No-Conversation.css';
+import './Init-Window.css';
 import image from '../../images/background/start.jpg'
 
-export default function NoConversation() {
+export default function InitWindow() {
 
 
     return (
-        <div className='no-conversation-page'>
+        <div className='init-window-page'>
             <div className='image-container'>
                 <img src={image} alt='application'></img>
             </div>

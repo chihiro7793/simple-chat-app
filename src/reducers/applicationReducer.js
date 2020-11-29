@@ -1,5 +1,5 @@
 
-export default function reducer(state = { searchValue: '', isFirstRender: false }, { type, payload }) {
+export default function reducer(state = { searchValue: '', isFirstRender: false, toggleConversations: false }, { type, payload }) {
     if (type === 'SEARCH_KEYWORD') {
         return {
             ...state,
@@ -14,6 +14,11 @@ export default function reducer(state = { searchValue: '', isFirstRender: false 
         return {
             ...state,
             isFirstRender: false
+        }
+    } else if (type === 'TOGGLE_CONVERSATION_MENU') {
+        return {
+            ...state,
+            toggleConversations: !state.toggleConversations
         }
     }
     return state;

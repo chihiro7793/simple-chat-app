@@ -33,3 +33,7 @@ export const fetchInitialdata = () => {
 export const changefirstRender = () => ({
     type: 'UNDO_FIRST_RENDER'
 })
+
+export const toggleConversationMenu = () => ({
+    type: 'TOGGLE_CONVERSATION_MENU'
+})

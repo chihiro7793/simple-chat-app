@@ -1,13 +1,14 @@
-import React from 'react'
-import './Conversation-List.css'
-import ConversationItem from './Coversation-Item'
+import ConversationItem from './Coversation-Item';
+import './Conversation-List.css';
+import React from 'react';
 
 function ConversationList(
     {
-        convs,
         onConversationItemSelected,
         selectedConversation,
-        searchKey
+        toggleConversations,
+        searchKey,
+        convs
     }
 ) {
     const filteredConversationItems =
@@ -17,11 +18,16 @@ function ConversationList(
                 .includes(searchKey.toLowerCase())
         );
     return (
-        <div className='conversation-list' >
+        <div
+            className=
+            {!toggleConversations ?
+                'conversation-list' :
+                'conversation-list hidden'} >
             {
-                filteredConversationItems.map((conversation, index) => {
-                    const conversationIsActive = selectedConversation && conversation.id === selectedConversation.id;
-
+                filteredConversationItems.map(conversation => {
+                    const conversationIsActive =
+                        selectedConversation && conversation.id ===
+                        selectedConversation.id;
                     return (
                         <ConversationItem
                             key={conversation.id}

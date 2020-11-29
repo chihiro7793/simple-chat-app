@@ -1,0 +1,18 @@
+.side-menu{
+    grid-area: side-menu;
+    background-color: #EDEDED;
+    display: grid;
+    height: 95vh;
+    border-radius: 10px 0 0 10px;
+    grid-template-rows: 70px 1fr;
+    grid-template-areas: 'nav'
+                        'conv-wrapper';
+    box-shadow:2px 0 3px -1px rgba(0, 0, 0, 0.12);
+    z-index: 1;
+}
+
+.conversation-wrapper{
+    grid-area:conv-wrapper;
+}
+
+

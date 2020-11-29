@@ -1,10 +1,10 @@
 import React from 'react';
-import './Init-Window.css';
+import './Loading-Window.css';
 
-const InitWindow = () => {
+const LoadingWindow = () => {
     return (
-        <div className="init-window-layout">
-            <div className="init-window-content">
+        <div className="loading-window-layout">
+            <div className="loading-window-content">
                 <h2>Messenger's Loading ... </h2>
                 <div className="lds-roller">
                     <div></div>
@@ -21,4 +21,4 @@ const InitWindow = () => {
     );
 }
 
-export default InitWindow;
+export default LoadingWindow;

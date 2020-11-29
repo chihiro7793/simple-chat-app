@@ -5,7 +5,7 @@ import { searchKeyword } from '../../actions/actions';
 import { connect } from 'react-redux';
 import './Chat-Nav.css';
 
-function ChatNav({ keyword, searchKeyword }) {
+function ChatNav({ keyword, searchKeyword, handleConversationMenu }) {
     const [mode, setMode] = useState('nav');
     const searchAutoFocus = useRef(null);
 
@@ -27,6 +27,7 @@ function ChatNav({ keyword, searchKeyword }) {
                     <FontAwesomeIcon
                         icon={faBars}
                         className='fontawesome-icon'
+                        onClick={handleConversationMenu}
                     />
                     <h3>Fancy Messenger</h3>
                     <FontAwesomeIcon

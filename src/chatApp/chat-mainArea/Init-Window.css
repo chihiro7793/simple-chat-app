@@ -1,4 +1,4 @@
-.no-conversation-page{
+.init-window-page{
     grid-area: mes-list;
     display: grid;
     grid-template-rows: repeat(3,1fr);
@@ -14,7 +14,7 @@
 }
 
 
-.no-conversation-page img{
+.init-window-page img{
     width: 320px;
     height: 300px;
     border-radius: 100%;

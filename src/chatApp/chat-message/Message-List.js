@@ -1,5 +1,6 @@
 import Message from './Message';
 import './Message-List.css';
+// import ChatForm from '../chat-form/Chat-Form'
 import React, { useEffect, useRef } from 'react';
 
 
@@ -17,6 +18,7 @@ function MessageList({ messages }) {
                     )
                 })
             }
+            {/* <ChatForm onMessageSubmit={messageSubmitted} /> */}
         </div>
     );
 }
