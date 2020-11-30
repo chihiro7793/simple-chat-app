@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
 import './Chat-Form.css';
 
-function ChatForm({ onMessageSubmit }) {
+const ChatForm = ({ onMessageSubmit }) => {
 
     const isMessageEmpty = (textMessage) => {
         return adjustTextMessage(textMessage).length === 0;

@@ -5,60 +5,65 @@ import { searchKeyword } from '../../actions/actions';
 import { connect } from 'react-redux';
 import './Chat-Nav.css';
 
-function ChatNav({ keyword, searchKeyword, handleConversationMenu }) {
-    const [mode, setMode] = useState('nav');
-    const searchAutoFocus = useRef(null);
+const ChatNav =
+    ({
+        handleConversationMenu,
+        searchKeyword,
+        keyword
+    }) => {
+        const [mode, setMode] = useState('nav');
+        const searchAutoFocus = useRef(null);
 
-    const isSearchMode = (mode === 'search');
-    useEffect(() => {
-        if (isSearchMode) {
-            searchAutoFocus.current.focus();
+        const isSearchMode = (mode === 'search');
+        useEffect(() => {
+            if (isSearchMode) {
+                searchAutoFocus.current.focus();
+            }
+        }, [isSearchMode])
+
+        function handleInputChange(e) {
+            keyword = e.target.value;
+            searchKeyword(keyword);
         }
-    }, [isSearchMode])
+        return (
+            <div className='nav'>
+                { mode === 'nav' &&
+                    <div className='title-bar'>
+                        <FontAwesomeIcon
+                            icon={faBars}
+                            className='fontawesome-icon'
+                            onClick={handleConversationMenu}
+                        />
+                        <h3>Fancy Messenger</h3>
+                        <FontAwesomeIcon
+                            icon={faSearch}
+                            className='fontawesome-icon'
+                            onClick={() => setMode('search')}
+                        />
+                    </div>
+                }
 
-    function handleInputChange(e) {
-        keyword = e.target.value;
-        searchKeyword(keyword);
+                {
+                    mode === 'search' &&
+                    <div className='search-bar'>
+                        <FontAwesomeIcon
+                            icon={faArrowLeft}
+                            className='fontawesome-icon'
+                            onClick={() => setMode('nav')}
+                        />
+                        <input
+                            placeholder='Search...'
+                            ref={searchAutoFocus}
+                            value={keyword}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                }
+
+
+            </div>
+        );
     }
-    return (
-        <div className='nav'>
-            { mode === 'nav' &&
-                <div className='title-bar'>
-                    <FontAwesomeIcon
-                        icon={faBars}
-                        className='fontawesome-icon'
-                        onClick={handleConversationMenu}
-                    />
-                    <h3>Fancy Messenger</h3>
-                    <FontAwesomeIcon
-                        icon={faSearch}
-                        className='fontawesome-icon'
-                        onClick={() => setMode('search')}
-                    />
-                </div>
-            }
-
-            {
-                mode === 'search' &&
-                <div className='search-bar'>
-                    <FontAwesomeIcon
-                        icon={faArrowLeft}
-                        className='fontawesome-icon'
-                        onClick={() => setMode('nav')}
-                    />
-                    <input
-                        placeholder='Search...'
-                        ref={searchAutoFocus}
-                        value={keyword}
-                        onChange={handleInputChange}
-                    />
-                </div>
-            }
-
-
-        </div>
-    );
-}
 
 const mapStateToProps = (state) => {
     return {

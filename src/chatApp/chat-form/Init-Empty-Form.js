@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-export default function InitEmptyForm() {
+const InitEmptyForm = () => {
 
 
     return (
@@ -16,3 +16,5 @@ export default function InitEmptyForm() {
         </div >
     )
 }
+
+export default InitEmptyForm;

@@ -1,10 +1,8 @@
-import React from 'react'
+import image from '../../images/background/start.jpg';
 import './Init-Window.css';
-import image from '../../images/background/start.jpg'
+import React from 'react';
 
-export default function InitWindow() {
-
-
+const InitWindow = () => {
     return (
         <div className='init-window-page'>
             <div className='image-container'>
@@ -18,3 +16,5 @@ export default function InitWindow() {
         </div>
     )
 }
+
+export default InitWindow;

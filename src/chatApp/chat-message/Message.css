@@ -59,8 +59,25 @@
   grid-row: 1;
   color: #ccc;
 }
+.message-info{
+  align-self: flex-end;
+  font-size: 1rem;
+  color: #ccc;
+}
 
+.message-star{
+  display: none;
+  margin-right: 5px;
+}
 
+.message-star.show{
+  display: inline-block;
+  color: goldenrod;
+
+}
+.message-checked{
+  color: #57C6F4;
+}
 .self-message .message-text {
   background: #DCF8C6;
   color: #000000;

@@ -6,7 +6,7 @@ const initialState = {
     selectedConversation: {}
 };
 
-export default function reducer(state = initialState, { type, payload }) {
+const reducer = (state = initialState, { type, payload }) => {
     if (type === 'CONVERSATIONS_REQUESTED') {
         return {
             ...state,
@@ -57,7 +57,6 @@ export default function reducer(state = initialState, { type, payload }) {
             selectedConversation: newStateConversations[0]
         })
     } else if (type === 'DELETE_MESSAGE') {
-        console.log(state.conversations);
         const selectedConv = state.conversations.find(item => item.username === payload.selectedConversation.username);
         let newSelectedConv;
         if (selectedConv) {
@@ -74,3 +73,4 @@ export default function reducer(state = initialState, { type, payload }) {
     return state;
 }
 
+export default reducer;
