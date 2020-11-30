@@ -1,0 +1,5 @@
+.message-controller {
+    display: flex;
+    flex-flow: column;
+    background-color: #EDEDED;
+}

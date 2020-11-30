@@ -56,6 +56,20 @@ export default function reducer(state = initialState, { type, payload }) {
             conversations: newStateConversations,
             selectedConversation: newStateConversations[0]
         })
+    } else if (type === 'DELETE_MESSAGE') {
+        console.log(state.conversations);
+        const selectedConv = state.conversations.find(item => item.username === payload.selectedConversation.username);
+        let newSelectedConv;
+        if (selectedConv) {
+            newSelectedConv = { ...selectedConv }
+            newSelectedConv.messages.splice(payload.id, 1)
+        } else {
+            newSelectedConv = payload.selectedConversation
+        }
+        return {
+            ...state,
+            selectedConversation: newSelectedConv
+        }
     }
     return state;
 }

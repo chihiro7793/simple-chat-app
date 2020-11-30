@@ -1,24 +1,29 @@
+import React, { useEffect, useRef } from 'react';
 import Message from './Message';
 import './Message-List.css';
-// import ChatForm from '../chat-form/Chat-Form'
-import React, { useEffect, useRef } from 'react';
 
 
-function MessageList({ messages }) {
+function MessageList({ selectedConversation, handleDeleteMessage }) {
     const messageListElement = useRef(null);
+
     useEffect(() => {
-        messageListElement.current.scrollTop = messageListElement.current.scrollHeight;
+        messageListElement.current.scrollTop =
+            messageListElement.current.scrollHeight;
     })
     return (
-        <div ref={messageListElement} className="chat-message-list">
+        <div ref={messageListElement}
+            className="chat-message-list">
             {
-                messages.map((message, index) => {
+                selectedConversation.messages.map((message, index) => {
                     return (
-                        <Message key={index} message={message} />
+                        <Message
+                            key={index}
+                            message={message}
+                            handleDeleteMessage={() => handleDeleteMessage(index, selectedConversation)}
+                        />
                     )
                 })
             }
-            {/* <ChatForm onMessageSubmit={messageSubmitted} /> */}
         </div>
     );
 }

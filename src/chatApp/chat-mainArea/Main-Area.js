@@ -6,9 +6,18 @@ import MessageList from '../chat-message/Message-List';
 import ChatForm from '../chat-form/Chat-Form';
 import ChatTitle from '../chat-title/Chat-Title';
 import InitEmptyForm from '../chat-form/Init-Empty-Form';
+import { deleteMessage } from '../../actions/actions';
+import { connect } from 'react-redux';
 
-export default function MainArea({ isConversationsLoaded, isFirstRender, selectedConversation, messageSubmitted }) {
 
+function MainArea
+    ({
+        isConversationsLoaded,
+        selectedConversation,
+        messageSubmitted,
+        isFirstRender,
+        deleteMessage
+    }) {
     let conversationContent;
     if (isFirstRender) {
         conversationContent = (
@@ -38,15 +47,15 @@ export default function MainArea({ isConversationsLoaded, isFirstRender, selecte
                     <ChatTitle
                         title={selectedConversation ? selectedConversation.username : ''}
                     />
-                    <MessageList messages={selectedConversation.messages} />
+                    <MessageList
+                        selectedConversation={selectedConversation}
+                        handleDeleteMessage={deleteMessage}
+                    />
                     <ChatForm onMessageSubmit={messageSubmitted} />
                 </>
             );
         }
     }
-
-
-
     return (
         <div className='main-area'>
             {conversationContent}
@@ -54,3 +63,20 @@ export default function MainArea({ isConversationsLoaded, isFirstRender, selecte
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return state;
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        deleteMessage: (messageId, selectedConversation) => dispatch(deleteMessage(messageId, selectedConversation)),
+    }
+}
+
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MainArea);

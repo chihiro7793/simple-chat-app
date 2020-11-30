@@ -37,3 +37,10 @@ export const changefirstRender = () => ({
 export const toggleConversationMenu = () => ({
     type: 'TOGGLE_CONVERSATION_MENU'
 })
+
+export const deleteMessage = (id, selectedConversation) => {
+    return ({
+        type: 'DELETE_MESSAGE',
+        payload: { id, selectedConversation }
+    });
+}

@@ -61,17 +61,17 @@ const mapStateToProps = state => {
         searchKey: state.applicationReducer.searchValue,
         isFirstRender: state.applicationReducer.isFirstRender,
         toggleConversations: state.applicationReducer.toggleConversations
-    };
-};
+    }
+}
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
         conversationChanged: conversationId => dispatch(conversationChanged(conversationId)),
         messageSubmitted: textMessage => dispatch(messageSubmitted(textMessage)),
         loadConversations: () => dispatch(fetchInitialdata()),
         toggleConversationMenu: () => dispatch(toggleConversationMenu())
-    };
-};
+    }
+}
 
 export default connect(
     mapStateToProps,
