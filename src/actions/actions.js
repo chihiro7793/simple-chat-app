@@ -1,4 +1,10 @@
 import { getInitData } from '../data/fetchData';
+
+export const setUser = (user) => ({
+    type: 'SET_USER',
+    payload: user
+});
+
 export const conversationsRequested = () => ({
     type: 'CONVERSATIONS_REQUESTED'
 });
@@ -44,3 +50,5 @@ export const deleteMessage = (id, selectedConversation) => {
         payload: { id, selectedConversation }
     });
 }
+
+

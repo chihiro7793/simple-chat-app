@@ -1,0 +1,77 @@
+body {
+    display: grid;
+    place-items: center;
+    background: #fff;
+    background-size: cover;
+    font-family: "Roboto";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body::before{
+    z-index: -1;
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ededed;
+    width: 40vw;
+    height: 60vh;
+    padding: 40px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
+}
+.form input {
+    outline: none;
+    margin: 0 0 20px;
+    width: 70%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    color: #ccc;
+    font-family: "Roboto";
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: 0.2s linear;
+ }
+.form h2 {
+    margin: 0 0 20px;
+    line-height: 1;
+    color: #0CC042;
+    font-size: 18px;
+    font-weight: 400;
+}
+button {
+    cursor: pointer;
+    background:#0CC042;
+    width: 70%;
+    padding: 10px 15px;
+    border: 0;
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+}
+button:hover {
+    background: #99d3aa;
+}
+.loginbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+.error, .valid{display:none;}
+  

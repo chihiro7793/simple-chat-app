@@ -1,17 +1,37 @@
+import ChatShell from './chatApp/chat-shell/Chat-Shell';
+import Login from './chatApp/chat-login/Login';
+// import { Switch, Route } from "react-router-dom";
+import { connect } from 'react-redux';
 import React from 'react';
 import './App.css';
-import ChatShell from './chatApp/chat-shell/Chat-Shell';
 
-function App() {
+
+const App = ({ user }) => {
+
   return (
-    <div>
-      <div className='appHead'></div>
-      <div className='app'>
-        <ChatShell />
-      </div>
-    </div>
+    <>
+      {!user ? (
+        <Login></Login>
+      ) : (
+          <>
+            <div className='appHead'></div>
+            <div className='app'>
+              <ChatShell />
+            </div>
+          </>
+        )
+
+      }
+    </>
 
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    user: state.applicationReducer.user
+  }
+}
+export default connect(
+  mapStateToProps
+)(App);

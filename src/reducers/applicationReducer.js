@@ -1,10 +1,16 @@
 
 const reducer =
     (
-        state = { searchValue: '', isFirstRender: false, toggleConversations: false }
-        , { type, payload
-        }) => {
-        if (type === 'SEARCH_KEYWORD') {
+        state = { user: null, searchValue: '', isFirstRender: false, toggleConversations: false }
+        ,
+        { type, payload }) => {
+        if (type === 'SET_USER') {
+            return {
+                ...state,
+                user: payload
+            }
+
+        } else if (type === 'SEARCH_KEYWORD') {
             return {
                 ...state,
                 searchValue: payload
